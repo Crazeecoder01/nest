@@ -8,12 +8,14 @@ import MediaCard from './Cards/Card'
 const NewsContent = ({setLoadMore, loadMore, newsArray, newsCount }) => {
   const isVisible = useMediaQuery('(min-width:645px)')
   const isSmallScreen = useMediaQuery('(max-width:900px)')
-  if (!isVisible) return null
+  // if (!isVisible) return null
 
   return (
     <Container maxWidth='md'>
       <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-        <Box 
+        {
+          isVisible &&(
+            <Box 
           sx={{ 
             width: 'auto', 
             display: 'flex', 
@@ -33,6 +35,9 @@ const NewsContent = ({setLoadMore, loadMore, newsArray, newsCount }) => {
           <img alt="app store" src={img1} style={{ height: '100px', margin: '0 20px' }} />
           <img alt="play store" src={img2} style={{ height: '30px' }} />
         </Box>
+          )
+        }
+        
         <Grid container spacing={4} sx={{ mt: 2 }}>
           {newsArray.map((newsItem) => (
             <Grid item xs={12} key={newsItem.title} sx={{display:"flex", alignItems:"center", justifyContent:"center"}}>
