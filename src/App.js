@@ -12,8 +12,8 @@ const App = () => {
   const fetchNews = useCallback(async () => {
 
     try {
-      const proxyUrl = "https://cors-anywhere.herokuapp.com/"
-      const news = await axios.get(`https://${proxyUrl}newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${process.env.REACT_APP_API_KEY}&pageSize=${loadMore}`)
+      // const proxyUrl = "https://cors-anywhere.herokuapp.com/"
+      const news = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${process.env.REACT_APP_API_KEY}&pageSize=${loadMore}`)
     
     
       setNewsArray(news.data.articles)
