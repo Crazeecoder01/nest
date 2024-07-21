@@ -2,7 +2,6 @@ import React, { useEffect, useState, useCallback } from 'react'
 import News from './components/news.js'
 import NewsContent from './components/NewsContent.js'
 import axios from 'axios'
-import apiKey from './data/config.js'
 import Footer from './components/Footer.js'
 
 const App = () => {
@@ -14,7 +13,7 @@ const App = () => {
 
     try {
       // const proxyUrl = "https://cors-anywhere.herokuapp.com/"
-      const news = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${apiKey}&pageSize=${loadMore}`)
+      const news = await axios.get(`https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${process.env.REACT_APP_API_KEY}&pageSize=${loadMore}`)
     
     
       setNewsArray(news.data.articles)
